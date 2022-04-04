@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+.main-container {
+  margin: 20px;
+  display: flex;
+  border-radius: 17px;
+  height: 60px;
+  max-width: 780px;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  /*background-color: #0b3041;*/
+  /*box-shadow: rgba(0, 0, 0, 0.34) 0px 3px 8px;*/
+}
+
+.main-container .items-container {
+  max-width: 660px;
+  display: flex;
+  justify-content: left;
+  overflow-x: hidden;
+  /*border: 1px solid green;*/
+}
+
+.main-container .items-container .movable-container {
+  width: 660px;
+  display: flex;
+  transition: 300ms;
+}
+
+.main-container .items-container .movable-container>div {
+  padding-top: 22px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 1.2px;
+  cursor: pointer;
+  width: auto;
+  min-width: 110px;
+  transition: 400ms;
+  /*border: 1px solid blue;*/
+}
+
+.main-container .items-container .movable-container>div:hover {
+  background-color: rgb(255, 255, 255, 0.1);
+}
+
+.main-container .items-container .movable-container .selected {
+  color: rgb(64, 155, 64) !important;
+  background-color: rgb(255, 255, 255, 0.05);
+}
+
+.main-container .left-box {
+  padding-top: 12px;
+  font-size: 25px;
+  color: rgba(255, 255, 255, 0.4);
+  min-width: 60px;
+  /* border: 1px solid white; */
+}
+
+.main-container .right-box {
+  padding-top: 12px;
+  font-size: 25px;
+  color: rgba(255, 255, 255, 0.4);
+  min-width: 60px;
+  /* border: 1px solid white; */
+}
