@@ -1,22 +1,20 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import './styles.css'
 import useWindowDimensions from '../../hooks/useWindowDimensions'
-import { useEffect } from 'react'
-import { isEditable } from '@testing-library/user-event/dist/utils'
+import LeftBox from './children/leftBox'
+import RightBox from './children/rightBox'
+import MovableContainer from './children/movableContainer'
 
 export default function Navbar() {
-  const links = ['home', 'skills', 'projects', 'activity', 'about', 'blog']
   const [selected, setSelected] = useState('home')
   const [showArrows, setShowArrows] = useState(false)
-  const [isActive, setIsActive] = useState({ left: false, right: false })
   const [translatedX, setTranslatedX] = useState(0)
   const [translationAvailableX, setTranslationAvailableX] = useState(0)
   const { windowWidth } = useWindowDimensions()
+  const links = ['home', 'skills', 'projects', 'activity', 'about', 'blog']
+  const [isActive, setIsActive] = useState({ left: false, right: false })
 
-  // WIDTHS of elements
   const width = {
     btn: 110,
     btnsContainer: links.length * 110,
@@ -28,7 +26,7 @@ export default function Navbar() {
   const delta = 2 * width.arrowBoxes + 2 * width.navMargin
 
   useEffect(() => {
-    setTranslatedX(0)  // when width changes set distanceX to default
+    setTranslatedX(0)
 
     // translatation available to the right
     if (windowWidth < 822) {
@@ -36,7 +34,6 @@ export default function Navbar() {
       setTranslationAvailableX(width.btnsContainer - visibleWidth)
     }
 
-    // show/hide/activate arrows
     if (windowWidth < 770) {
       setShowArrows(true)
       setIsActive({ ...isActive, right: true })
@@ -44,7 +41,6 @@ export default function Navbar() {
     else {
       setShowArrows(false)
     }
-
   }, [windowWidth])
 
   function moveRight() {
@@ -77,42 +73,24 @@ export default function Navbar() {
 
   return (
     <div className='main-container'>
-      <div className={isActive.left ? 'left-box active' : 'left-box'}>
-        {
-          showArrows ?
-            <FontAwesomeIcon icon={faCaretLeft} onClick={() => moveLeft()} />
-            :
-            null
-        }
-
-      </div>
+      <LeftBox
+        showArrows={showArrows}
+        moveLeft={moveLeft}
+        isActive={isActive}
+      />
       <div className='items-container'>
-        <div className='movable-container' style={{ transform: `translateX(-${translatedX}px)` }}>
-          {
-            links.map((link) => {
-              return (
-                selected === link ?
-                  <div
-                    className='selected'
-                    onClick={() => setSelected(link)}
-                  >
-                    {link}
-                  </div>
-                  :
-                  <div onClick={() => setSelected(link)}>{link}</div>
-              )
-            })
-          }
-        </div>
+        <MovableContainer
+          links={links}
+          translatedX={translatedX}
+          selected={selected}
+          setSelected={setSelected}
+        />
       </div>
-      <div className={isActive.right ? 'right-box active' : 'right-box'}>
-        {
-          showArrows ?
-            <FontAwesomeIcon icon={faCaretRight} onClick={() => moveRight()} />
-            :
-            null
-        }
-      </div>
+      <RightBox
+        showArrows={showArrows}
+        moveRight={moveRight}
+        isActive={isActive}
+      />
     </div>
   )
 }
