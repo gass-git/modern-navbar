@@ -65,3 +65,8 @@
   min-width: 60px;
   /* border: 1px solid white; */
 }
+
+.main-container .active {
+  color: rgba(255, 255, 255, 0.8) !important;
+  cursor: pointer !important;
+}
