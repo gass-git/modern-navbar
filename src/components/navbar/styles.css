@@ -67,3 +67,13 @@
   color: rgba(255, 255, 255, 0.8) !important;
   cursor: pointer !important;
 }
+
+@media (hover: none) and (pointer: coarse) {
+  .main-container .left-box:hover {
+    background-color: transparent;
+  }
+
+  .main-container .right-box:hover {
+    background-color: transparent;
+  }
+}
