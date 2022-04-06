@@ -8,13 +8,19 @@ export default function MovableContainer({ links, translatedX, selected, setSele
           return (
             selected === link ?
               <div
+                key={link}
                 className='selected'
                 onClick={() => setSelected(link)}
               >
                 {link}
               </div>
               :
-              <div onClick={() => setSelected(link)}>{link}</div>
+              <div
+                key={link}
+                onClick={() => setSelected(link)}
+              >
+                {link}
+              </div>
           )
         })
       }
