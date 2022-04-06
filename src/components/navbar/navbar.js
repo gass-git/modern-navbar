@@ -9,9 +9,9 @@ import { useEffect } from 'react'
 export default function Navbar() {
   const [selected, setSelected] = useState('home')
   const [showArrows, setShowArrows] = useState(false)
-  const [isRightActive, setRightActive] = useState(false)
-  const [isLeftActive, setLeftActive] = useState(false)
-  const [distanceX, setDistanceX] = useState(0)
+  const [isActive, setActive] = useState({ left: false, right: false })
+  const [translatedX, setTranslatedX] = useState(0)
+  const [translationAvailableX, setTranslationAvailableX] = useState(0)
   const { width } = useWindowDimensions()
   const links = [
     'home',
@@ -21,8 +21,29 @@ export default function Navbar() {
     'about',
     'blog'
   ]
+  const btnWidth = 110
+
+  // width of the btns container
+  const btnsContainerWidth = links.length * btnWidth
+
+  const arrowBoxesWidth = 60
+  const navMargin = 20
+
+  // left and right boxes widths + nav margins
+  let delta = 2 * arrowBoxesWidth + 2 * navMargin
 
   useEffect(() => {
+    // when width changes set distanceX to default
+    setTranslatedX(0)
+
+    // translatation left available
+    if (width < 822) {
+      // visible btns container width
+      let visibleWidth = width - delta
+
+      setTranslationAvailableX(btnsContainerWidth - visibleWidth)
+    }
+
     if (width < 770) {
       setShowArrows(true)
     }
@@ -31,8 +52,22 @@ export default function Navbar() {
     }
   }, [width])
 
-  function translateX(pixels) {
-    setDistanceX(distanceX + pixels)
+  function moveRight() {
+    if (translationAvailableX >= translatedX + btnWidth) {
+      setTranslatedX(translatedX + btnWidth)
+    }
+    else if (translationAvailableX - translatedX < btnWidth) {
+      setTranslatedX(translationAvailableX)
+    }
+  }
+
+  function moveLeft() {
+    if (translatedX >= btnWidth) {
+      setTranslatedX(translatedX - btnWidth)
+    }
+    else if (translatedX < btnWidth && translatedX > 0) {
+      setTranslatedX(0)
+    }
   }
 
   return (
@@ -40,19 +75,27 @@ export default function Navbar() {
       <div className='left-box'>
         {
           showArrows ?
-            <FontAwesomeIcon icon={faCaretLeft} onClick={() => translateX(-110)} />
+            <FontAwesomeIcon
+              icon={faCaretLeft}
+              onClick={() => moveLeft()}
+            />
             :
             null
         }
 
       </div>
       <div className='items-container'>
-        <div className='movable-container' style={{ transform: `translateX(-${distanceX}px)` }}>
+        <div className='movable-container' style={{ transform: `translateX(-${translatedX}px)` }}>
           {
             links.map((link) => {
               return (
                 selected === link ?
-                  <div className='selected' onClick={() => setSelected(link)}>{link}</div>
+                  <div
+                    className='selected'
+                    onClick={() => setSelected(link)}
+                  >
+                    {link}
+                  </div>
                   :
                   <div onClick={() => setSelected(link)}>{link}</div>
               )
@@ -63,7 +106,10 @@ export default function Navbar() {
       <div className='right-box'>
         {
           showArrows ?
-            <FontAwesomeIcon icon={faCaretRight} onClick={() => translateX(110)} />
+            <FontAwesomeIcon
+              icon={faCaretRight}
+              onClick={() => moveRight()}
+            />
             :
             null
         }
