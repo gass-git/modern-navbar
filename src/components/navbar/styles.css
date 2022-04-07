@@ -23,7 +23,7 @@
 }
 
 .main-container .items-container .movable-container>div {
-  height: 60px;
+  height: 58px;
   text-align: center;
   line-height: 60px;
   font-family: 'Roboto', sans-serif;
@@ -36,16 +36,10 @@
   width: auto;
   min-width: 110px;
   max-width: 110px;
-  transition: 400ms;
-}
-
-.main-container .items-container .movable-container>div:hover {
-  background-color: rgb(255, 255, 255, 0.1);
 }
 
 .main-container .items-container .movable-container .selected {
   color: rgb(74, 179, 74) !important;
-  background-color: rgb(255, 255, 255, 0.05);
 }
 
 .main-container .left-box {
@@ -72,8 +66,3 @@
   color: rgba(255, 255, 255, 0.8) !important;
   cursor: pointer !important;
 }
-
-/*
-@media (hover: none) and (pointer: coarse) {
-}
-*/
