@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 
+.wrapper {
+  margin: 0 auto;
+  padding: 10px;
+  min-width: 180px;
+}
+
 .main-container {
   display: flex;
   border-radius: 17px;
@@ -47,21 +53,22 @@
 
 .main-container .left-box {
   height: 60px;
+  min-width: 35px;
   line-height: 60px;
-  text-align: center;
+  padding-right: 10px;
+  text-align: right;
   font-size: 25px;
   color: rgba(255, 255, 255, 0.4);
-  min-width: 60px;
   -webkit-tap-highlight-color: transparent;
 }
 
 .main-container .right-box {
   height: 60px;
+  min-width: 50px;
   line-height: 60px;
   text-align: center;
   font-size: 25px;
   color: rgba(255, 255, 255, 0.4);
-  min-width: 60px;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -81,5 +88,30 @@
 
   100% {
     color: rgb(69, 210, 69)
+  }
+}
+
+@media (min-width:690px) and (max-width: 822px) {
+  .left-box {
+    display: none !important;
+  }
+
+  .right-box {
+    display: none !important;
+  }
+}
+
+@media (min-width:600) and (max-width:689) {
+  .movable-container>div {
+    min-width: 105px !important;
+    max-width: 105px !important;
+  }
+
+  .left-box {
+    display: block !important;
+  }
+
+  .right-box {
+    display: block !important;
   }
 }

@@ -16,78 +16,111 @@ export default function Navbar() {
   const [isActive, setIsActive] = useState({ left: false, right: false })
 
   // widths
-  const btnWidth = 110
+  const btnWidth = 105
   const btnsContainerWidth = links.length * btnWidth
 
   // (left/right boxes widths) * 2 + (navbar wrapper padding + margin) * 2 + (border width) * 2
-  const delta = 2 * 60 + 2 * 15 + 2 * 2
+  const delta = 2 * 60 + 2 * 10
+
+  // max-width of wrapper
+  const [maxWidth, setMaxWidth] = useState(780)
+
+  const [hiddenRight, setHiddenRigth] = useState(0)
+  const [hiddenLeft, setHiddenLeft] = useState(0)
 
   useEffect(() => {
     setTranslatedX(0)
+    setHiddenLeft(0)
 
-    // translatation available to the right
-    if (windowWidth < 840) {
-      let visibleWidth = windowWidth - delta // visible btns container width
-      setTranslationAvailableX(btnsContainerWidth - visibleWidth)
-    }
+    if (isActive.left) setIsActive({ ...isActive, left: false })
 
-    if (windowWidth < 770) {
+    if (windowWidth >= 660 && windowWidth < 690) {
       setShowArrows(true)
-      setIsActive({ ...isActive, right: true })
+      setMaxWidth(680)
+      setHiddenRigth(1)
+      setIsActive({ left: false, right: true })
     }
-    else {
+    else if (windowWidth >= 555 && windowWidth < 660) {
+      setMaxWidth(540)
+      setHiddenRigth(2)
+      setIsActive({ left: false, right: true })
+    }
+    else if (windowWidth > 445 && windowWidth < 555) {
+      setMaxWidth(435)
+      setHiddenRigth(3)
+      setIsActive({ left: false, right: true })
+    }
+    else if (windowWidth > 335 && windowWidth < 445) {
+      setMaxWidth(315)
+      setHiddenRigth(4)
+      setIsActive({ left: false, right: true })
+    }
+    else if (windowWidth > 0 && windowWidth < 335) {
+      setMaxWidth(205)
+      setHiddenRigth(5)
+      setIsActive({ left: false, right: true })
+    }
+    else if (windowWidth > 689) {
+      setMaxWidth(780)
       setShowArrows(false)
+      setIsActive({ left: false, right: true })
     }
   }, [windowWidth])
 
   function moveRight() {
-    if (translationAvailableX - translatedX >= btnWidth) {
+    if (!isActive.left) setIsActive({ ...isActive, left: true })
+
+    if (hiddenRight > 1) {
+      setHiddenRigth(hiddenRight - 1)
+      setHiddenLeft(hiddenLeft + 1)
       setTranslatedX(translatedX + btnWidth)
-      setIsActive({ ...isActive, left: true })
     }
-    else if (translationAvailableX - translatedX < btnWidth) {
-      setTranslatedX(translationAvailableX)
-      setIsActive({ ...isActive, right: false })
+    else if (hiddenRight === 1) {
+      setHiddenRigth(0)
+      setHiddenLeft(hiddenLeft + 1)
+      setTranslatedX(translatedX + btnWidth)
+      setIsActive({ right: false, left: true })
     }
   }
 
   function moveLeft() {
-    if (translatedX >= btnWidth) {
+    if (!isActive.right) setIsActive({ ...isActive, right: true })
+
+    if (hiddenLeft > 1) {
+      setHiddenLeft(hiddenLeft - 1)
+      setHiddenRigth(hiddenRight + 1)
       setTranslatedX(translatedX - btnWidth)
     }
-    else if (translatedX < btnWidth && translatedX > 0) {
-      setTranslatedX(0)
-    }
-
-    // arrow activation and deactivation conditions
-    if (isActive.right === false) {
-      setIsActive({ ...isActive, right: true })
-    }
-    else if (translatedX < btnWidth || translatedX === btnWidth) {
-      setIsActive({ ...isActive, left: false })
+    else if (hiddenLeft === 1) {
+      setHiddenLeft(0)
+      setHiddenRigth(hiddenRight + 1)
+      setTranslatedX(translatedX - btnWidth)
+      setIsActive({ right: true, left: false })
     }
   }
 
   return (
-    <div className='main-container'>
-      <LeftBox
-        showArrows={showArrows}
-        moveLeft={moveLeft}
-        isActive={isActive}
-      />
-      <div className='items-container'>
-        <MovableContainer
-          links={links}
-          translatedX={translatedX}
-          selected={selected}
-          setSelected={setSelected}
+    <div className='wrapper' style={{ maxWidth: maxWidth }}>
+      <div className='main-container'>
+        <LeftBox
+          showArrows={showArrows}
+          moveLeft={moveLeft}
+          isActive={isActive}
+        />
+        <div className='items-container'>
+          <MovableContainer
+            links={links}
+            translatedX={translatedX}
+            selected={selected}
+            setSelected={setSelected}
+          />
+        </div>
+        <RightBox
+          showArrows={showArrows}
+          moveRight={moveRight}
+          isActive={isActive}
         />
       </div>
-      <RightBox
-        showArrows={showArrows}
-        moveRight={moveRight}
-        isActive={isActive}
-      />
     </div>
   )
 }
