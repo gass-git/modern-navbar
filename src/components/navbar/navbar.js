@@ -15,23 +15,20 @@ export default function Navbar() {
   const links = ['home', 'skills', 'projects', 'activity', 'about', 'blog']
   const [isActive, setIsActive] = useState({ left: false, right: false })
 
-  const width = {
-    btn: 110,
-    btnsContainer: links.length * 110,
-    arrowBoxes: 60,
-    navMargin: 20
-  }
+  // widths
+  const btnWidth = 110
+  const btnsContainerWidth = links.length * btnWidth
 
-  // left and right BOXES WIDTHS plus NAV MARGINS
-  const delta = 2 * width.arrowBoxes + 2 * width.navMargin
+  // (left/right boxes widths) * 2 + (navbar wrapper padding + margin) * 2 + (border width) * 2
+  const delta = 2 * 60 + 2 * 25 + 2 * 2
 
   useEffect(() => {
     setTranslatedX(0)
 
     // translatation available to the right
-    if (windowWidth < 822) {
+    if (windowWidth < 840) {
       let visibleWidth = windowWidth - delta // visible btns container width
-      setTranslationAvailableX(width.btnsContainer - visibleWidth)
+      setTranslationAvailableX(btnsContainerWidth - visibleWidth)
     }
 
     if (windowWidth < 770) {
@@ -44,21 +41,21 @@ export default function Navbar() {
   }, [windowWidth])
 
   function moveRight() {
-    if (translationAvailableX >= translatedX + width.btn) {
-      setTranslatedX(translatedX + width.btn)
+    if (translationAvailableX - translatedX >= btnWidth) {
+      setTranslatedX(translatedX + btnWidth)
       setIsActive({ ...isActive, left: true })
     }
-    else if (translationAvailableX - translatedX < width.btn) {
+    else if (translationAvailableX - translatedX < btnWidth) {
       setTranslatedX(translationAvailableX)
       setIsActive({ ...isActive, right: false })
     }
   }
 
   function moveLeft() {
-    if (translatedX >= width.btn) {
-      setTranslatedX(translatedX - width.btn)
+    if (translatedX >= btnWidth) {
+      setTranslatedX(translatedX - btnWidth)
     }
-    else if (translatedX < width.btn && translatedX > 0) {
+    else if (translatedX < btnWidth && translatedX > 0) {
       setTranslatedX(0)
     }
 
@@ -66,7 +63,7 @@ export default function Navbar() {
     if (isActive.right === false) {
       setIsActive({ ...isActive, right: true })
     }
-    else if (translatedX < width.btn || translatedX === width.btn) {
+    else if (translatedX < btnWidth || translatedX === btnWidth) {
       setIsActive({ ...isActive, left: false })
     }
   }

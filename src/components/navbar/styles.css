@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 
 .main-container {
-  margin: 20px;
   display: flex;
   border-radius: 17px;
   height: 60px;
@@ -35,6 +34,7 @@
   cursor: pointer;
   width: auto;
   min-width: 110px;
+  max-width: 110px;
   transition: 400ms;
 }
 
