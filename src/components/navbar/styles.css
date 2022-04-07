@@ -41,7 +41,7 @@
 
 .main-container .items-container .movable-container .selected {
   animation-name: font-color-waver;
-  animation-duration: 3.5s;
+  animation-duration: 3s;
   animation-iteration-count: infinite;
 }
 
@@ -72,14 +72,14 @@
 
 @keyframes font-color-waver {
   0% {
-    color: rgba(74, 179, 74, 0.8)
+    color: rgb(69, 210, 69)
   }
 
   50% {
-    color: rgb(62, 189, 62)
+    color: rgba(60, 191, 60, 0.75)
   }
 
   100% {
-    color: rgb(74, 179, 74, 0.8)
+    color: rgb(69, 210, 69)
   }
 }
