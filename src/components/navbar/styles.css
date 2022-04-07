@@ -23,14 +23,15 @@
 }
 
 .main-container .items-container .movable-container>div {
-  padding-top: 22px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
   font-family: 'Roboto', sans-serif;
+  letter-spacing: 1.2px;
   font-size: 15px;
   font-weight: 500;
   text-transform: capitalize;
-  text-align: center;
   color: rgba(255, 255, 255, 0.55);
-  letter-spacing: 1.2px;
   cursor: pointer;
   width: auto;
   min-width: 110px;
@@ -48,20 +49,22 @@
 }
 
 .main-container .left-box {
-  padding-top: 12px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
   font-size: 25px;
   color: rgba(255, 255, 255, 0.4);
   min-width: 60px;
-  text-align: center;
   -webkit-tap-highlight-color: transparent;
 }
 
 .main-container .right-box {
-  padding-top: 12px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
   font-size: 25px;
   color: rgba(255, 255, 255, 0.4);
   min-width: 60px;
-  text-align: center;
   -webkit-tap-highlight-color: transparent;
 }
 
