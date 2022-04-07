@@ -36,10 +36,13 @@
   width: auto;
   min-width: 110px;
   max-width: 110px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .main-container .items-container .movable-container .selected {
-  color: rgb(74, 179, 74) !important;
+  animation-name: font-color-waver;
+  animation-duration: 3.5s;
+  animation-iteration-count: infinite;
 }
 
 .main-container .left-box {
@@ -65,4 +68,18 @@
 .main-container .active {
   color: rgba(255, 255, 255, 0.8) !important;
   cursor: pointer !important;
+}
+
+@keyframes font-color-waver {
+  0% {
+    color: rgba(74, 179, 74, 0.8)
+  }
+
+  50% {
+    color: rgb(62, 189, 62)
+  }
+
+  100% {
+    color: rgb(74, 179, 74, 0.8)
+  }
 }
