@@ -11,7 +11,6 @@ export default function LeftBox({ showArrows, isActive, moveLeft }) {
           :
           null
       }
-
     </div>
   )
 }
