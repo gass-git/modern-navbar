@@ -20,7 +20,7 @@ export default function Navbar() {
   const btnsContainerWidth = links.length * btnWidth
 
   // (left/right boxes widths) * 2 + (navbar wrapper padding + margin) * 2 + (border width) * 2
-  const delta = 2 * 60 + 2 * 25 + 2 * 2
+  const delta = 2 * 60 + 2 * 15 + 2 * 2
 
   useEffect(() => {
     setTranslatedX(0)
