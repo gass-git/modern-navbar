@@ -2,8 +2,12 @@
 
 .wrapper {
   margin: 0 auto;
-  padding: 10px;
-  min-width: 180px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  min-width: 200px;
+  max-width: 780px;
+  transition: 300ms;
 }
 
 .main-container {
@@ -101,10 +105,10 @@
   }
 }
 
-@media (min-width:600) and (max-width:689) {
+@media (min-width:665px) and (max-width:689px) {
   .movable-container>div {
-    min-width: 105px !important;
-    max-width: 105px !important;
+    min-width: 110px !important;
+    max-width: 110px !important;
   }
 
   .left-box {
@@ -113,5 +117,118 @@
 
   .right-box {
     display: block !important;
+  }
+}
+
+@media (min-width:590px) and (max-width:664px) {
+  .wrapper {
+    max-width: 560px;
+  }
+
+  .movable-container>div {
+    min-width: 95px !important;
+    max-width: 95px !important;
+  }
+}
+
+@media (min-width:500px) and (max-width:589px) {
+  .wrapper {
+    max-width: 475px;
+  }
+
+  .movable-container>div {
+    min-width: 95px !important;
+    max-width: 95px !important;
+  }
+}
+
+@media (min-width:430px) and (max-width:499px) {
+  .wrapper {
+    max-width: 410px;
+  }
+
+  .movable-container>div {
+    min-width: 105px !important;
+    max-width: 105px !important;
+  }
+}
+
+@media (min-width:410px) and (max-width:429px) {
+  .movable-container>div {
+    min-width: 95px !important;
+    max-width: 95px !important;
+  }
+}
+
+@media screen and (max-width:409px) {
+  .wrapper {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+}
+
+@media (min-width:385px) and (max-width:409px) {
+  .movable-container>div {
+    min-width: 90px !important;
+    max-width: 90px !important;
+  }
+}
+
+@media (min-width:370px) and (max-width:384px) {
+
+  .movable-container>div {
+    min-width: 85px !important;
+    max-width: 85px !important;
+  }
+}
+
+@media (min-width:350px) and (max-width:369px) {
+
+  .movable-container>div {
+    min-width: 120px !important;
+    max-width: 120px !important;
+  }
+}
+
+@media (min-width:320px) and (max-width:349px) {
+
+  .movable-container>div {
+    min-width: 110px !important;
+    max-width: 110px !important;
+  }
+}
+
+@media (min-width:290px) and (max-width:319px) {
+  .movable-container>div {
+    min-width: 95px !important;
+    max-width: 95px !important;
+  }
+}
+
+@media (min-width:275px) and (max-width:289px) {
+  .movable-container>div {
+    min-width: 85px !important;
+    max-width: 85px !important;
+  }
+}
+
+@media (min-width:260px) and (max-width:275px) {
+  .movable-container>div {
+    min-width: 155px !important;
+    max-width: 155px !important;
+  }
+}
+
+@media (min-width:240px) and (max-width:259px) {
+  .movable-container>div {
+    min-width: 145px !important;
+    max-width: 145px !important;
+  }
+}
+
+@media screen and (max-width:239px) {
+  .movable-container>div {
+    min-width: 125px !important;
+    max-width: 125px !important;
   }
 }
