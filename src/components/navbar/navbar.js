@@ -41,21 +41,25 @@ export default function Navbar() {
       setIsActive({ left: false, right: true })
     }
     else if (windowWidth >= 555 && windowWidth < 660) {
+      setShowArrows(true)
       setMaxWidth(540)
       setHiddenRigth(2)
       setIsActive({ left: false, right: true })
     }
     else if (windowWidth > 445 && windowWidth < 555) {
+      setShowArrows(true)
       setMaxWidth(435)
       setHiddenRigth(3)
       setIsActive({ left: false, right: true })
     }
     else if (windowWidth > 335 && windowWidth < 445) {
+      setShowArrows(true)
       setMaxWidth(315)
       setHiddenRigth(4)
       setIsActive({ left: false, right: true })
     }
     else if (windowWidth > 0 && windowWidth < 335) {
+      setShowArrows(true)
       setMaxWidth(205)
       setHiddenRigth(5)
       setIsActive({ left: false, right: true })
