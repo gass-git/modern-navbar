@@ -36,8 +36,8 @@ export default function Navbar() {
     }
     else if (windowWidth >= 430 && windowWidth < 500) {
       setShowArrows(true)
-      setHiddenRigth(3)
-      setTranslationWidth(105)
+      setHiddenRigth(4)
+      setTranslationWidth(135)
       setIsActive({ left: false, right: true })
     }
     else if (windowWidth >= 410 && windowWidth < 430) {
