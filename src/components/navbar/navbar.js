@@ -13,7 +13,7 @@ export default function Navbar() {
   const { windowWidth } = useWindowDimensions()
   const links = ['home', 'skills', 'projects', 'activity', 'about', 'blog']
   const [isActive, setIsActive] = useState({ left: false, right: false })
-  const [translationWidth, setTranslationWidth] = useState(105)
+  const [translationWidth, setTranslationWidth] = useState(0)
   const [hiddenRight, setHiddenRigth] = useState(0)
   const [hiddenLeft, setHiddenLeft] = useState(0)
 
@@ -23,21 +23,29 @@ export default function Navbar() {
 
     if (isActive.left) setIsActive({ ...isActive, left: false })
 
-    if (windowWidth >= 590 && windowWidth < 690) {
+    if (windowWidth >= 665 && windowWidth < 690) {
       setShowArrows(true)
-      setHiddenRigth(1)
+      setHiddenRigth(2)
+      setTranslationWidth(129)
+      setIsActive({ left: false, right: true })
+    }
+
+    else if (windowWidth >= 590 && windowWidth < 665) {
+      setShowArrows(true)
+      setHiddenRigth(2)
+      setTranslationWidth(107)
       setIsActive({ left: false, right: true })
     }
     else if (windowWidth >= 500 && windowWidth < 590) {
       setShowArrows(true)
-      setHiddenRigth(2)
-      setTranslationWidth(95)
+      setHiddenRigth(3)
+      setTranslationWidth(121)
       setIsActive({ left: false, right: true })
     }
-    else if (windowWidth >= 430 && windowWidth < 500) {
+    else if (windowWidth >= 432 && windowWidth < 500) {
       setShowArrows(true)
-      setHiddenRigth(4)
-      setTranslationWidth(135)
+      setHiddenRigth(3)
+      setTranslationWidth(94)
       setIsActive({ left: false, right: true })
     }
     else if (windowWidth >= 410 && windowWidth < 430) {
@@ -55,43 +63,43 @@ export default function Navbar() {
     else if (windowWidth >= 350 && windowWidth < 370) {
       setShowArrows(true)
       setHiddenRigth(4)
-      setTranslationWidth(117)
+      setTranslationWidth(118)
       setIsActive({ left: false, right: true })
     }
     else if (windowWidth >= 320 && windowWidth < 350) {
       setShowArrows(true)
       setHiddenRigth(4)
-      setTranslationWidth(108)
+      setTranslationWidth(105)
       setIsActive({ left: false, right: true })
     }
-    else if (windowWidth >= 290 && windowWidth < 320) {
+    else if (windowWidth >= 300 && windowWidth < 320) {
       setShowArrows(true)
-      setHiddenRigth(4)
-      setTranslationWidth(95)
+      setHiddenRigth(5)
+      setTranslationWidth(190)
       setIsActive({ left: false, right: true })
     }
-    else if (windowWidth >= 275 && windowWidth < 290) {
+    else if (windowWidth >= 275 && windowWidth < 300) {
       setShowArrows(true)
-      setHiddenRigth(4)
-      setTranslationWidth(85)
+      setHiddenRigth(5)
+      setTranslationWidth(159)
       setIsActive({ left: false, right: true })
     }
     else if (windowWidth >= 260 && windowWidth < 275) {
       setShowArrows(true)
       setHiddenRigth(5)
-      setTranslationWidth(155)
-      setIsActive({ left: false, right: true })
-    }
-    else if (windowWidth >= 240 && windowWidth < 260) {
-      setShowArrows(true)
-      setHiddenRigth(5)
       setTranslationWidth(145)
       setIsActive({ left: false, right: true })
     }
-    else if (windowWidth < 240) {
+    else if (windowWidth >= 249 && windowWidth < 260) {
       setShowArrows(true)
       setHiddenRigth(5)
-      setTranslationWidth(125)
+      setTranslationWidth(130)
+      setIsActive({ left: false, right: true })
+    }
+    else if (windowWidth < 249) {
+      setShowArrows(true)
+      setHiddenRigth(5)
+      setTranslationWidth(95)
       setIsActive({ left: false, right: true })
     }
     else if (windowWidth > 689) {
