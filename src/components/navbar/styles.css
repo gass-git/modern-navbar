@@ -28,14 +28,16 @@
 }
 
 .main-container .items-container .movable-container {
-  margin-top: 21px;
   width: 660px;
   display: flex;
   transition: 300ms;
 }
 
 .main-container .items-container .movable-container>div {
-  height: 31px;
+  position: relative;
+  overflow: hidden;
+  height: 34px;
+  padding-top: 21px;
   text-align: center;
   font-family: 'Roboto', sans-serif;
   letter-spacing: 1.1px;
@@ -57,11 +59,11 @@
 }
 
 .main-container .left-box {
-  height: 58px;
-  min-width: 45px;
+  height: 55px;
+  min-width: 41px;
   line-height: 60px;
-  padding-right: 7px;
-  padding-top: 3px;
+  padding-right: 11px;
+  padding-top: 2px;
   text-align: right;
   color: rgba(255, 255, 255, 0.2);
   -webkit-tap-highlight-color: transparent;
@@ -72,7 +74,7 @@
   min-width: 50px;
   line-height: 60px;
   text-align: center;
-  padding-top: 3px;
+  padding-top: 2px;
   color: rgba(255, 255, 255, 0.1);
   -webkit-tap-highlight-color: transparent;
 }
@@ -80,6 +82,33 @@
 .main-container .active {
   color: rgba(255, 255, 255, 0.75) !important;
   cursor: pointer !important;
+}
+
+.ripple {
+  position: absolute;
+  z-index: 10;
+  background-color: white;
+  opacity: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation-name: ripple;
+  animation-duration: 500ms;
+}
+
+@keyframes ripple {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 0.5;
+  }
+
+  100% {
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+  }
 }
 
 @keyframes font-color-waver {

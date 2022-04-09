@@ -1,14 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import useSound from 'use-sound'
 import selectionSound from '../../../assets/sounds/selection.wav'
 
 export default function MovableContainer({ links, translatedX, selected, setSelected }) {
   const [playSound] = useSound(selectionSound, { volume: 0.9 })
+  const [x, setX] = useState(0)
+  const [y, setY] = useState(0)
 
-  function handleClick(link) {
+  function handleClick(link, event) {
     setSelected(link)
     playSound()
+    setX(event.nativeEvent.offsetX)
+    setY(event.nativeEvent.offsetY)
   }
+
+  useEffect(() => {
+    if (x !== 0 || y !== 0) {
+      setTimeout(() => {
+        setX(0)
+        setY(0)
+      }, 500)
+    }
+  }, [x, y])
 
   return (
     <div className='movable-container' style={{ transform: `translateX(-${translatedX}px)` }}>
@@ -19,15 +32,27 @@ export default function MovableContainer({ links, translatedX, selected, setSele
               <div
                 key={link}
                 className='selected'
-                onClick={() => handleClick(link)}
+                onClick={(event) => handleClick(link, event)}
               >
+                {
+                  x !== 0 && y !== 0 ?
+                    <div
+                      className='ripple'
+                      style={{
+                        left: `${x}px`,
+                        top: `${y}px`
+                      }}
+                    >
+                    </div>
+                    :
+                    console.log('asdsd')
+                }
                 {link}
               </div>
               :
               <div
                 key={link}
-                className='ripple'
-                onClick={() => handleClick(link)}
+                onClick={(event) => handleClick(link, event)}
               >
                 {link}
               </div>
