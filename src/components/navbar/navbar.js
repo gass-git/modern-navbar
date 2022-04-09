@@ -10,17 +10,10 @@ export default function Navbar() {
   const [selected, setSelected] = useState('home')
   const [showArrows, setShowArrows] = useState(false)
   const [translatedX, setTranslatedX] = useState(0)
-  const [translationAvailableX, setTranslationAvailableX] = useState(0)
   const { windowWidth } = useWindowDimensions()
   const links = ['home', 'skills', 'projects', 'activity', 'about', 'blog']
   const [isActive, setIsActive] = useState({ left: false, right: false })
-
-  // widths
   const [translationWidth, setTranslationWidth] = useState(105)
-
-  // (left/right boxes widths) * 2 + (navbar wrapper padding + margin) * 2 + (border width) * 2
-  const delta = 2 * 60 + 2 * 10
-
   const [hiddenRight, setHiddenRigth] = useState(0)
   const [hiddenLeft, setHiddenLeft] = useState(0)
 
