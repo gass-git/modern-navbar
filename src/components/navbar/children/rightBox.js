@@ -18,7 +18,7 @@ export default function RightBox({ showArrows, isActive, moveRight }) {
     >
       {
         showArrows ?
-          <ArrowForwardIosIcon />
+          <ArrowForwardIosIcon fontSize='small' />
           :
           null
       }

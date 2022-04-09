@@ -18,7 +18,7 @@ export default function LeftBox({ showArrows, isActive, moveLeft }) {
     >
       {
         showArrows ?
-          <ArrowBackIosIcon />
+          <ArrowBackIosIcon fontSize='small' />
           :
           null
       }
