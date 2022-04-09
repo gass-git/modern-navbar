@@ -27,15 +27,15 @@
 }
 
 .main-container .items-container .movable-container {
+  margin-top: 23px;
   width: 660px;
   display: flex;
   transition: 300ms;
 }
 
 .main-container .items-container .movable-container>div {
-  height: 58px;
+  height: 36px;
   text-align: center;
-  line-height: 60px;
   font-family: 'Roboto', sans-serif;
   letter-spacing: 1.2px;
   font-size: 15px;
@@ -60,9 +60,9 @@
   min-width: 45px;
   line-height: 60px;
   padding-right: 7px;
-  padding-top: 5px;
+  padding-top: 6px;
   text-align: right;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.2);
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -71,8 +71,8 @@
   min-width: 50px;
   line-height: 60px;
   text-align: center;
-  padding-top: 5px;
-  color: rgba(255, 255, 255, 0.4);
+  padding-top: 6px;
+  color: rgba(255, 255, 255, 0.1);
   -webkit-tap-highlight-color: transparent;
 }
 
