@@ -1,8 +1,7 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretRight } from '@fortawesome/free-solid-svg-icons'
 import useSound from 'use-sound'
 import tickSound from '../../../assets/sounds/tick.wav'
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 export default function RightBox({ showArrows, isActive, moveRight }) {
   const [playSound] = useSound(tickSound, { volume: 0.6 })
@@ -19,7 +18,7 @@ export default function RightBox({ showArrows, isActive, moveRight }) {
     >
       {
         showArrows ?
-          <FontAwesomeIcon icon={faCaretRight} />
+          <ArrowForwardIosIcon />
           :
           null
       }

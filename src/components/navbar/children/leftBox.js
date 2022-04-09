@@ -1,8 +1,7 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretLeft } from '@fortawesome/free-solid-svg-icons'
 import useSound from 'use-sound'
 import tickSound from '../../../assets/sounds/tick.wav'
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 export default function LeftBox({ showArrows, isActive, moveLeft }) {
   const [playSound] = useSound(tickSound, { volume: 0.6 })
@@ -19,7 +18,7 @@ export default function LeftBox({ showArrows, isActive, moveLeft }) {
     >
       {
         showArrows ?
-          <FontAwesomeIcon icon={faCaretLeft} />
+          <ArrowBackIosIcon />
           :
           null
       }

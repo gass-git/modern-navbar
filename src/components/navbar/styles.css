@@ -59,8 +59,9 @@
   height: 60px;
   min-width: 35px;
   line-height: 60px;
-  padding-right: 10px;
-  text-align: right;
+  padding-left: 10px;
+  padding-top: 1px;
+  text-align: center;
   font-size: 25px;
   color: rgba(255, 255, 255, 0.4);
   -webkit-tap-highlight-color: transparent;
@@ -71,13 +72,14 @@
   min-width: 50px;
   line-height: 60px;
   text-align: center;
+  padding-top: 1px;
   font-size: 25px;
   color: rgba(255, 255, 255, 0.4);
   -webkit-tap-highlight-color: transparent;
 }
 
 .main-container .active {
-  color: rgba(255, 255, 255, 0.8) !important;
+  color: rgba(255, 255, 255, 0.75) !important;
   cursor: pointer !important;
 }
 
