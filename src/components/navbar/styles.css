@@ -13,10 +13,11 @@
 .main-container {
   display: flex;
   border-radius: 17px;
-  height: 60px;
+  height: 55px;
   max-width: 780px;
   justify-content: center;
   border: 2px solid rgba(255, 255, 255, 0.25);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .main-container .items-container {
@@ -27,20 +28,20 @@
 }
 
 .main-container .items-container .movable-container {
-  margin-top: 23px;
+  margin-top: 21px;
   width: 660px;
   display: flex;
   transition: 300ms;
 }
 
 .main-container .items-container .movable-container>div {
-  height: 36px;
+  height: 31px;
   text-align: center;
   font-family: 'Roboto', sans-serif;
-  letter-spacing: 1.2px;
-  font-size: 15px;
-  font-weight: 500;
-  text-transform: capitalize;
+  letter-spacing: 1.1px;
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: uppercase;
   color: rgba(255, 255, 255, 0.55);
   cursor: pointer;
   width: auto;
@@ -60,7 +61,7 @@
   min-width: 45px;
   line-height: 60px;
   padding-right: 7px;
-  padding-top: 6px;
+  padding-top: 3px;
   text-align: right;
   color: rgba(255, 255, 255, 0.2);
   -webkit-tap-highlight-color: transparent;
@@ -71,7 +72,7 @@
   min-width: 50px;
   line-height: 60px;
   text-align: center;
-  padding-top: 6px;
+  padding-top: 3px;
   color: rgba(255, 255, 255, 0.1);
   -webkit-tap-highlight-color: transparent;
 }
@@ -169,16 +170,16 @@
 
 @media (min-width:385px) and (max-width:409px) {
   .movable-container>div {
-    min-width: 90px !important;
-    max-width: 90px !important;
+    min-width: 130px !important;
+    max-width: 130px !important;
   }
 }
 
 @media (min-width:370px) and (max-width:384px) {
 
   .movable-container>div {
-    min-width: 85px !important;
-    max-width: 85px !important;
+    min-width: 125px !important;
+    max-width: 125px !important;
   }
 }
 

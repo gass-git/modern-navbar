@@ -1,7 +1,7 @@
 import React from 'react'
 import useSound from 'use-sound'
 import tickSound from '../../../assets/sounds/tick.wav'
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
 
 export default function LeftBox({ showArrows, isActive, moveLeft }) {
   const [playSound] = useSound(tickSound, { volume: 0.6 })
@@ -18,7 +18,7 @@ export default function LeftBox({ showArrows, isActive, moveLeft }) {
     >
       {
         showArrows ?
-          <ArrowBackIosIcon fontSize='medium' />
+          <ArrowBackIosRoundedIcon fontSize='small' />
           :
           null
       }

@@ -42,13 +42,13 @@ export default function Navbar() {
     }
     else if (windowWidth >= 410 && windowWidth < 430) {
       setShowArrows(true)
-      setTranslationWidth(92)
-      setHiddenRigth(3)
+      setTranslationWidth(130)
+      setHiddenRigth(4)
       setIsActive({ left: false, right: true })
     }
     else if (windowWidth >= 370 && windowWidth < 410) {
       setShowArrows(true)
-      setTranslationWidth(85)
+      setTranslationWidth(125)
       setHiddenRigth(3)
       setIsActive({ left: false, right: true })
     }
