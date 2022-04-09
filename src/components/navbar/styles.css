@@ -56,22 +56,22 @@
 }
 
 .main-container .left-box {
-  height: 60px;
-  min-width: 35px;
+  height: 58px;
+  min-width: 45px;
   line-height: 60px;
-  padding-left: 10px;
-  padding-top: 3px;
+  padding-right: 7px;
+  padding-top: 5px;
   text-align: right;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.3);
   -webkit-tap-highlight-color: transparent;
 }
 
 .main-container .right-box {
-  height: 60px;
+  height: 58px;
   min-width: 50px;
   line-height: 60px;
   text-align: center;
-  padding-top: 3px;
+  padding-top: 5px;
   color: rgba(255, 255, 255, 0.4);
   -webkit-tap-highlight-color: transparent;
 }
