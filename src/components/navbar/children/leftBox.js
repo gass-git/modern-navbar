@@ -1,14 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import useSound from 'use-sound'
 import tickSound from '../../../assets/sounds/tick.wav'
 import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
 
 export default function LeftBox({ showArrows, isActive, moveLeft }) {
   const [playSound] = useSound(tickSound, { volume: 0.6 })
+  const [clickEffect, setClickEffect] = useState(false)
+
+  useEffect(() => {
+    if (clickEffect) {
+      setTimeout(() => {
+        setClickEffect(false)
+      }, 200)
+    }
+  }, [clickEffect])
+
 
   function handleClick() {
     moveLeft()
     playSound()
+    setClickEffect(true)
   }
 
   return (
@@ -18,7 +29,10 @@ export default function LeftBox({ showArrows, isActive, moveLeft }) {
     >
       {
         showArrows ?
-          <ArrowBackIosRoundedIcon fontSize='small' />
+          <ArrowBackIosRoundedIcon
+            fontSize='small'
+            className={clickEffect ? 'green' : 'white'}
+          />
           :
           null
       }

@@ -19,7 +19,7 @@ export default function MovableContainer({ links, translatedX, selected, setSele
       setTimeout(() => {
         setX(0)
         setY(0)
-      }, 500)
+      }, 400)
     }
   }, [x, y])
 
@@ -35,17 +35,14 @@ export default function MovableContainer({ links, translatedX, selected, setSele
                 onClick={(event) => handleClick(link, event)}
               >
                 {
-                  x !== 0 && y !== 0 ?
+                  (x !== 0 && y !== 0) ?
                     <div
                       className='ripple'
-                      style={{
-                        left: `${x}px`,
-                        top: `${y}px`
-                      }}
+                      style={{ left: `${x}px`, top: `${y}px` }}
                     >
                     </div>
                     :
-                    console.log('asdsd')
+                    null
                 }
                 {link}
               </div>

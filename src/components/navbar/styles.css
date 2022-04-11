@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 
+:root {
+  --light-green: rgb(69, 210, 69);
+  --green: rgb(58, 161, 58);
+}
+
 .wrapper {
   margin: 0 auto;
   padding-top: 10px;
@@ -44,7 +49,8 @@
   font-size: 13px;
   font-weight: 400;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
+  color: white;
+  opacity: 0.55;
   cursor: pointer;
   width: auto;
   min-width: 110px;
@@ -53,6 +59,7 @@
 }
 
 .main-container .items-container .movable-container .selected {
+  opacity: 1;
   animation-name: font-color-waver;
   animation-duration: 3s;
   animation-iteration-count: infinite;
@@ -65,7 +72,7 @@
   padding-right: 11px;
   padding-top: 2px;
   text-align: right;
-  color: rgba(255, 255, 255, 0.2);
+  opacity: 0.3;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -75,12 +82,12 @@
   line-height: 60px;
   text-align: center;
   padding-top: 2px;
-  color: rgba(255, 255, 255, 0.1);
+  opacity: 0.3;
   -webkit-tap-highlight-color: transparent;
 }
 
 .main-container .active {
-  color: rgba(255, 255, 255, 0.75) !important;
+  opacity: 0.75 !important;
   cursor: pointer !important;
 }
 
@@ -95,6 +102,14 @@
   transform: translate(-50%, -50%);
   animation-name: ripple;
   animation-duration: 500ms;
+}
+
+.green {
+  color: var(--light-green);
+}
+
+.white {
+  color: white;
 }
 
 @keyframes ripple {
@@ -113,15 +128,15 @@
 
 @keyframes font-color-waver {
   0% {
-    color: rgb(69, 210, 69)
+    color: var(--light-green)
   }
 
   50% {
-    color: rgba(60, 191, 60, 0.75)
+    color: var(--green)
   }
 
   100% {
-    color: rgb(69, 210, 69)
+    color: var(--light-green)
   }
 }
 
